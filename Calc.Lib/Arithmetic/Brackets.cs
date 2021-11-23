@@ -16,20 +16,20 @@ namespace Calc.Lib.Arithmetic
 
         public static IStep ParseBrackets(string line)
         {
-            int openBreaket = IndexOpenBracket(line);
-            if (openBreaket != -1) // Если есть открывающая скобка
+            int indexOpen = IndexOpenBracket(line); // Открывающая скобка
+            if (indexOpen != -1) 
             {
-                int closeBreaket = IndexCloseBracket(line);
-                if (closeBreaket != -1) // Если есть закрывающая скобка
+                int indexClose = IndexCloseBracket(line);   // Закрывающая скобка
+                if (indexClose != -1) 
                 {
-                    int secondBreaket = IndexOpenBracket(line.Substring(1));
-                    if (secondBreaket != -1 && secondBreaket < closeBreaket) // Если между ними есть вложенная открывающая скобка
+                    int indexInner = IndexOpenBracket(line.Substring(1));   // Вложенная скобка
+                    if (indexInner != -1 && indexInner < indexClose) 
                     {
-
+                        return new Number(line.Substring(indexInner, indexClose - indexInner));
                     }
                     else
                     {
-
+                        return new Number(line.Substring(indexOpen +1, indexClose - indexOpen)); // Вычислить действие в скобках
                     }
                 }
                 else throw new InvalidOperationException($"Нет закрывающей скобки в строке '{line}'");

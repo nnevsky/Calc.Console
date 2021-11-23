@@ -6,7 +6,7 @@ namespace Calc.Console
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            System.Console.WriteLine("You can type example use arithmetics or enter path to text file with examples...");
         }
     }
 }
