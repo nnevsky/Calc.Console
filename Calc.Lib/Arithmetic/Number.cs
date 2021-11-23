@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Calc.Console.Classes
+namespace Calc.Lib.Arithmetic
 {
     class Number : Step
     {
@@ -15,7 +15,7 @@ namespace Calc.Console.Classes
             }
             else
             {
-                ParseString();
+                result = Operation.ParseOperation(line).Result;
             }
         }
 
@@ -32,7 +32,7 @@ namespace Calc.Console.Classes
            
         }
 
-        public static IStep ParseOperation(string line)
+        public static Operation ParseOperation(string line)
         {
             foreach (char c in line)
             {
