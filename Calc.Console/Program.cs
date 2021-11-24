@@ -1,5 +1,5 @@
-﻿//using Calc.Lib.Arithmetic;
-using Calc.Lib1;
+﻿using Calc.Lib.Arithmetic;
+//using Calc.Lib1;
 using System;
 
 namespace Calc.Console

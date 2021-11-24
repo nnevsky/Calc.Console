@@ -43,11 +43,11 @@ namespace Calc.Lib1
             {
                 result = res;
             }
-            else
-            {
-                NextStep = Operation.ParseOperation(line);
-                //NextStep = new Brackets(line);
-            }
+            else throw new Exception("Неверный формат числа");
+            //{
+            //    NextStep = Operation.ParseOperation(line);
+            //    //NextStep = new Brackets(line);
+            //}
         }
     }
     public class Brackets : Step
@@ -121,10 +121,10 @@ namespace Calc.Lib1
             return null;
         }
 
-        //protected override void Parse()
-        //{
-        //    NextStep = ParseOperation(line);
-        //}
+        protected override void Parse()
+        {
+            NextStep = ParseOperation(line);
+        }
     }
     class Plus : Operation
     {
